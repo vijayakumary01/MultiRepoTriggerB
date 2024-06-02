@@ -1,0 +1,25 @@
+trigger:
+- main
+
+resources:
+  repositories:
+  - repository: B
+    type: github
+    endpoint: github.com_vijayakumary01
+    name: vijayakumary01/MultiRepoTriggerB
+    ref: main
+    trigger:
+    - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout : A
+- script: echo Hello, world11111!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
